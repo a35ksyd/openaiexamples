@@ -1,12 +1,10 @@
 import os
 from openai import OpenAI
 from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.formatters import JSONFormatter
-
 
 # Initial the api call
 client = OpenAI()
-client.api_key(os.getenv("OPENAI_API_KEY"))
+client.api_key = os.getenv("OPENAI_API_KEY")
 
 # YouTubeTranscriptApi to download the video transcript
 transcripts = YouTubeTranscriptApi.get_transcript("CMsuDp_DER4")
