@@ -2,7 +2,7 @@
 
 
 ### Summarize of youtbe video
-<li><a href="https://github.com/a35ksyd/openaiexamples/tree/main/src/youtubetranscript">youtubetranscript</a> 
+<li><a href="https://github.com/a35ksyd/openaiexamples/tree/main/youtubetranscript">youtubetranscript</a> 
 demonstrates how to use OpenAI to summarize a YouTube video transcript. </li>
 
 ### The OpenAI API vision
