@@ -43,8 +43,8 @@ tools = [
     }
 ]
 ```
-function name: contatins the function name
-parameters: define the parameters
+<br>function name: contatins the function name
+<br>parameters: define the parameters
 
 ### 3. Define User Messages
 
@@ -66,9 +66,6 @@ messages = [
     }
 ]
 ```
-
-function name: contatins the function name
-parameters: define the parameters
 
 
 ### 4. Function to Call OpenAI
@@ -108,11 +105,11 @@ client.api_key = os.getenv("OPENAI_API_KEY")
 
 ### 8. Execute the Main Logic
 
-OpenAI determines whether an external call is necessary. If an external call is required, the tool_calls variable will not be null:
+<br>OpenAI determines whether an external call is necessary. If an external call is required, the tool_calls variable will not be null:
 
-tool_calls = response.choices[0].message.tool_calls
+<br>tool_calls = response.choices[0].message.tool_calls
 
-Example
+Example<br>
 Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_ac9BfbR9mGgEseUjCNzDDaqF', function=Function(arguments='{"item":"apple"}', name='get_item_price'), type='function')]))
 
 
@@ -166,5 +163,5 @@ if tool_calls:
 
 
 ## Example
-Please enter the item name:apple
+<br>Please enter the item name:apple<br>
 Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='The price of an apple is $0.99.', refusal=None, role='assistant', function_call=None, tool_calls=None))
