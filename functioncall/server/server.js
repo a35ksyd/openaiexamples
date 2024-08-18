@@ -6,6 +6,7 @@ const port = 3000;
 
 
 app.get('/price/:item', (req, res) => {
+    console.log(req)
     const item = req.params.item;
     const itemePrice = dataservice.getPrice(item);
     const unixTimestamp = Date.now();
