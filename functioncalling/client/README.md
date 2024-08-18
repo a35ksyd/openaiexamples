@@ -2,31 +2,13 @@
 
 This guide helps you use the `Function calling` feature in OpenAI API to call an external API based on user input.
 
-## Prerequisites
-
-- Python 3.7 or higher installed.
-- The `openai` and `requests` Python packages installed.
-- An OpenAI API key.
-- An external API running (e.g., `http://localhost:3000/price/{item}`).
-
-## Installation
-
-1. Install the required Python packages:
-   ```bash
-   pip install openai requests
-   ```
-
-2. Set your OpenAI API key as an environment variable:
-   ```bash
-   export OPENAI_API_KEY="your_openai_api_key"
-   ```
 
 ## Code Overview
 
 This script allows you to query item prices from external services using OpenAI's `Function calling` feature
 
 
-### 2. External Function to Get Item Price
+### 1. External Function to Get Item Price
 The server folder contains the service implementation in node.js
 
 This function makes a GET request to an external API to retrieve the price of a given item:
@@ -36,7 +18,7 @@ def get_item_price(item):
     return response.json()
 ```
 
-### 3. Define Tools for OpenAI
+### 2. Define Tools for OpenAI
 
 The `tools` list defines the external functions that OpenAI can call:
 ```python
@@ -64,7 +46,7 @@ tools = [
 function name: contatins the function name
 parameters: define the parameters
 
-### 4. Define User Messages
+### 3. Define User Messages
 
 The script sets up the initial messages that will guide the user interaction:
 ```python
@@ -85,9 +67,11 @@ messages = [
 ]
 ```
 
+function name: contatins the function name
+parameters: define the parameters
 
 
-### 5. Function to Call OpenAI
+### 4. Function to Call OpenAI
 
 This function sends the request to OpenAI, which will decide if an external function needs to be called:
 ```python
@@ -114,7 +98,7 @@ def getUserInput():
     messages[0]["content"].append(new_item)  
 ```
 
-### 7. Initialize the OpenAI Client
+### 6. Initialize the OpenAI Client
 
 The script initializes the OpenAI client with your API key:
 ```python
@@ -129,7 +113,7 @@ OpenAI determines whether an external call is necessary. If an external call is 
 tool_calls = response.choices[0].message.tool_calls
 
 Example
-ChatCompletionMessageToolCall(id='call_elYajbvEE1liIuONwxySNBdt', function=Function(arguments='{"item":"orange"}', #name='get_item_price'), type='function')
+Choice(finish_reason='tool_calls', index=0, logprobs=None, message=ChatCompletionMessage(content=None, refusal=None, role='assistant', function_call=None, tool_calls=[ChatCompletionMessageToolCall(id='call_ac9BfbR9mGgEseUjCNzDDaqF', function=Function(arguments='{"item":"apple"}', name='get_item_price'), type='function')]))
 
 
 ```python
